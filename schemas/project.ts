@@ -1,4 +1,4 @@
-import { BookIcon } from '@sanity/icons'
+import { RocketIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
@@ -17,9 +17,9 @@ import authorType from './author'
  */
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
-  icon: BookIcon,
+  name: 'project',
+  title: 'Project',
+  icon: RocketIcon,
   type: 'document',
   fields: [
     defineField({
@@ -29,10 +29,35 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+        isUnique: (value, context) => context.defaultIsUnique(value, context),
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
       of: [{ type: 'block' }],
+    }),
+    defineField({
+      name: 'url',
+      title: 'Url',
+      type: 'url',
+      validation: (rule) => rule.uri({
+        scheme: ['http', 'https']
+      })
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}]
     }),
     defineField({
       name: 'coverImage',
@@ -41,12 +66,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      name: 'date',
-      title: 'Date',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
     }),
     defineField({
       name: 'author',
