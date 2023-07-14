@@ -15,7 +15,7 @@ export default function MoreStories({ posts }: { posts: Post[] }) {
             coverImage={post.coverImage}
             date={post.date}
             author={post.author}
-            slug={post.slug}
+            slug={`/posts/${post.slug}`}
             excerpt={post.excerpt}
           />
         ))}

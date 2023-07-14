@@ -11,8 +11,6 @@ function styleNavLink({
   title: string
   currentPath: string
 }) {
-  console.log(currentPath)
-  console.log(currentPath.includes(title))
   if (currentPath == "/" || currentPath.includes("posts")) {
     if (title == "posts") { return <span>Articles.</span>}
     if (title == "projects") { return <span className='text-slate-500 hover:text-black'>Projects.</span> }
