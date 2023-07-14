@@ -1,7 +1,9 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
   indexQuery,
+  projectIndexQuery,
   type Post,
+  type Project,
   postAndMoreStoriesQuery,
   postBySlugQuery,
   postSlugsQuery,
@@ -27,6 +29,13 @@ export async function getSettings(): Promise<Settings> {
 export async function getAllPosts(): Promise<Post[]> {
   if (client) {
     return (await client.fetch(indexQuery)) || []
+  }
+  return []
+}
+
+export async function getAllProjects(): Promise<Project[]> {
+  if (client) {
+    return (await client.fetch(projectIndexQuery)) || []
   }
   return []
 }

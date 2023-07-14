@@ -1,5 +1,4 @@
 import { RocketIcon } from '@sanity/icons'
-import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
 import authorType from './author'
@@ -46,8 +45,16 @@ export default defineType({
       of: [{ type: 'block' }],
     }),
     defineField({
-      name: 'url',
-      title: 'Url',
+      name: 'gitUrl',
+      title: 'Git Url',
+      type: 'url',
+      validation: (rule) => rule.uri({
+        scheme: ['http', 'https']
+      })
+    }),
+    defineField({
+      name: 'productionUrl',
+      title: 'Production Url',
       type: 'url',
       validation: (rule) => rule.uri({
         scheme: ['http', 'https']
@@ -57,13 +64,19 @@ export default defineType({
       name: 'technos',
       title: 'Technos',
       type: 'array',
-      of: [{type: 'string'}]
+      of: [{type: 'string'}],
+            options: {
+        layout: 'tags'
+      }
     }),
     defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [{type: 'string'}]
+      of: [{type: 'string'}],
+      options: {
+        layout: 'tags'
+      }
     }),
     defineField({
       name: 'coverImage',
@@ -74,26 +87,25 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [{ type: authorType.name }],
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: [{ type: authorType.name }]
+      }],
     }),
   ],
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
-      date: 'date',
+      technos: 'technos',
       media: 'coverImage',
+      content: 'content'
     },
-    prepare({ title, media, author, date }) {
-      const subtitles = [
-        author && `by ${author}`,
-        date && `on ${format(parseISO(date), 'LLL d, yyyy')}`,
-      ].filter(Boolean)
-
-      return { title, media, subtitle: subtitles.join(' ') }
+    prepare({ title, technos, content, media }) {
+      //console.log("content:", content)
+      return { title, media, technos, subtitle: content[0].children[0].text }
     },
   },
 })
