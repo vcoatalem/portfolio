@@ -10,6 +10,7 @@ import SectionSeparator from 'components/SectionSeparator'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
+import IntroTemplate from 'intro-template'
 
 export interface PostPageProps {
   preview?: boolean
@@ -37,7 +38,7 @@ export default function PostPage(props: PostPageProps) {
 
       <Layout preview={preview} loading={loading}>
         <Container>
-          <BlogHeader title={title} level={2} />
+          <BlogHeader level={2} />
           {preview && !post ? (
             <PostTitle>Loading…</PostTitle>
           ) : (
@@ -56,6 +57,7 @@ export default function PostPage(props: PostPageProps) {
             </>
           )}
         </Container>
+        <IntroTemplate />
       </Layout>
     </>
   )

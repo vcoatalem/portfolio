@@ -2,14 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { memo, useEffect, useState } from 'react'
 
-import cover from './cover.png'
+import cover from './portrait.jpg'
 
 export default memo(function IntroTemplate() {
   const [studioURL, setStudioURL] = useState(null)
   const [createPostURL, setCreatePostURL] = useState(null)
   const [isLocalHost, setIsLocalhost] = useState(false)
 
-  const hasEnvFile = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
   const hasRepoEnvVars =
     process.env.NEXT_PUBLIC_VERCEL_GIT_PROVIDER &&
     process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_OWNER &&
@@ -45,60 +44,33 @@ export default memo(function IntroTemplate() {
             src={cover}
           />
           <div className="mt-10 hidden px-14 text-xs text-gray-700 md:block">
-            <RemoveBlock url={removeBlockURL} />
+            <span>Powered by Vercel & Sanity</span>
           </div>
         </div>
 
         <div className="mx-6 md:mx-0 md:mr-24">
-          <h2 className="mb-8 text-xl font-bold tracking-wide md:text-5xl">
-            Next steps
+          <h2 className="mb-8 text-3xl font-bold tracking-wide md:text-5xl">
+            More from me
           </h2>
-
-          {!hasEnvFile && (
-            <div
-              className="mb-6 rounded-lg bg-yellow-100 p-4 text-sm text-yellow-700"
-              role="alert"
-            >
-              {`It looks like you haven't set up the local environment variables.`}
-              <p>
-                <a
-                  href={
-                    'https://github.com/sanity-io/nextjs-blog-cms-sanity-v3#step-2-set-up-the-project-locally'
-                  }
-                  className={`mx-1 underline hover:text-blue-800`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {`Here's how to set them up locally`}
-                </a>
-              </p>
-            </div>
-          )}
 
           <ol>
             <Box
               circleTitle="1"
               element={
                 <div>
-                  <div className="col-span-2 mb-2 mt-1 font-semibold">
-                    Create content with Sanity Studio
+                  <div className="col-span-2 mb-2 mt-1 text-xl font-semibold">
+                    I write things !
                   </div>
-                  <div className="text-xs text-gray-700">
-                    Your Sanity Studio is deployed at
-                    <Link
-                      className="mx-1 underline hover:text-blue-800"
-                      href={studioURL}
-                    >
-                      {studioURL}
-                    </Link>
+                  <div className="text-s text-gray-700">
+                    Checkout my <a href="https://dev.to/vcoatalem">dev.to</a> profile
                   </div>
 
                   <div className="mt-3">
                     <Link
                       className="inline-flex rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-800"
-                      href={createPostURL}
+                      href="https://dev.to/vcoatalem"
                     >
-                      Go to Sanity Studio
+                      Follow me on Dev.To
                     </Link>
                   </div>
                 </div>
@@ -109,44 +81,12 @@ export default memo(function IntroTemplate() {
               circleTitle="2"
               element={
                 <div>
-                  <div className="col-span-2 mb-2 mt-1 font-semibold">
-                    Modify and deploy the project
+                  <div className="col-span-2 mb-2 mt-1 text-xl font-semibold">
+                    Like this website ?
                   </div>
-
-                  {isLocalHost ? (
-                    <div className="text-xs text-gray-700">
-                      Start editing your content structure by changing the post
-                      schema in
-                      <div className="w-fit bg-slate-200 px-2">
-                        <pre>schemas/post.ts</pre>
-                      </div>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="text-xs text-gray-700">
-                        Your code can be found at
-                        <a
-                          className="mx-1 underline hover:text-blue-800"
-                          href={repoURL}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {repoURL}
-                        </a>
-                      </div>
-
-                      <div className="mt-3">
-                        <a
-                          className="inline-flex rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-800"
-                          href={repoURL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Go to {getGitProvider()} repo
-                        </a>
-                      </div>
-                    </>
-                  )}
+                  <div className="text-s text-gray-700">
+                    Checkout <a className='font-bold text-blue-500' href="https://github.com/sanity-io/nextjs-blog-cms-sanity-v3">the original template</a> and <a className='font-bold text-blue-500' href="https://github.com/vcoatalem/portfolio"> my <em>adapted</em> version</a>
+                  </div>
                 </div>
               }
             />
@@ -155,35 +95,43 @@ export default memo(function IntroTemplate() {
               circleTitle="3"
               element={
                 <div>
-                  <div className="col-span-2 mb-3 mt-1 font-semibold">
-                    Learn more and get help
+                  <div className='col-span-2 mb-3 mt-1 text-xl font-semibold'>
+                    Code::Stats is cool
                   </div>
-                  <ul>
-                    <li className="mb-2">
-                      <BlueLink
-                        href="https://www.sanity.io/docs"
-                        text="Documentation for Sanity"
-                      />
-                    </li>
-                    <li className="mb-2">
-                      <BlueLink
-                        href="https://nextjs.org/docs"
-                        text="Documentation for Next.js"
-                      />
-                    </li>
-                    <li className="mb-2">
-                      <BlueLink
-                        href="https://slack.sanity.io/"
-                        text="Join the Sanity Community"
-                      />
-                    </li>
-                  </ul>
+                  <div className="text-s text-gray-700">
+                    <a className='font-mono hover:text-blue-800 break-all' href="https://codestats.net/users/vcoatalem">https://codestats.net/users/vcoatalem</a>
+                  </div>
                 </div>
               }
             />
+
           </ol>
+          <div className='mt-8'>
+            <div className="mb-3 mt-1 text-4xl font-semibold">
+              Interested in working together ?
+            </div>
+            <ul>
+              <li className="mb-2">
+                
+                <BlueLink
+                  href="https://www.linkedin.com/in/victor-coatalem/"
+                  text="Connect with me on LinkedIn"
+                  svgPath='M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z'
+                />
+              </li>
+              <li className="mb-2">
+                <BlueLink
+                  href="mailto:victor.coatalem@gmail.com"
+                  text="Join me by mail"
+                  svgPath='M18.73 5.41l-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 002 7.05v11.59A1.36 1.36 0 003.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0022 18.64V7.05a2 2 0 00-3.27-1.64z'
+                />
+              </li>
+            </ul>
+          </div>
+
           <div className="text-center text-xs text-gray-700 md:invisible">
-            <RemoveBlock url={removeBlockURL} />
+
+         
           </div>
         </div>
       </div>
@@ -210,37 +158,27 @@ function Box({
   )
 }
 
-function BlueLink({ href, text }: { href: string; text: string }) {
+function BlueLink({ href, text, svgPath }: {href: string; text: string, svgPath: string }) {
   return (
     <a
       href={href}
-      className="text-blue-500 underline hover:text-blue-800"
+      className="text-blue-500 underline hover:text-blue-800 flex flex-row"
       target="_blank"
       rel="noreferrer"
     >
-      {text}
+      <svg
+        className='flex mr-4'
+        viewBox="0 0 24 24"
+        fill="#222222"
+        height="4em"
+        width="4em"
+      >
+        <path d={svgPath} />
+      </svg>
+      <span className='flex justify-start self-center text-2xl'>
+        {text}
+      </span>
+
     </a>
   )
-}
-
-const RemoveBlock = ({ url }) => (
-  <a
-    className="hover:text-blue-800"
-    href={url}
-    target="_blank"
-    rel="noreferrer"
-  >
-    How to remove this block?
-  </a>
-)
-
-function getGitProvider() {
-  switch (process.env.NEXT_PUBLIC_VERCEL_GIT_PROVIDER) {
-    case 'gitlab':
-      return 'GitLab'
-    case 'bitbucket':
-      return 'Bitbucket'
-    default:
-      return 'GitHub'
-  }
 }

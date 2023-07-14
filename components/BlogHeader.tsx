@@ -11,6 +11,7 @@ function styleNavLink({
   title: string
   currentPath: string
 }) {
+
   if (currentPath == "/" || currentPath.includes("posts")) {
     if (title == "posts") { return <span>Articles.</span>}
     if (title == "projects") { return <span className='text-slate-500 hover:text-black'>Projects.</span> }
@@ -22,26 +23,25 @@ function styleNavLink({
 }
 
 export default function BlogHeader({
-  level,
-  description
+  level
 }: {
-  description?: any[]
   level: 1 | 2
 }) {
   const { asPath, pathname } = useRouter()
+  console.log(asPath, pathname)
 
   switch (level) {
     case 1:
       return (
-        <header className="mb-10 mt-16 flex flex-col items-center md:mb-12 md:flex-row md:justify-between">
+        <header className="mb-10 mt-16 flex flex-col items-center lg:mb-12 lg:flex-row lg:justify-between">
           <h1 className="text-6xl font-bold leading-tight tracking-tighter md:pr-8 md:text-8xl">
             <a href="/">{styleNavLink({ title: "posts", currentPath: asPath })}</a>
             <a href="/projects">{styleNavLink({ title: "projects", currentPath: asPath })}</a>
           </h1>
           <h4
-            className={`mt-5 text-center text-lg md:pl-8 md:text-left ${styles.portableText}`}
+            className={`mt-5 text-center text-lg  lg:text-2xl lg:pl-8 lg:text-left ${styles.portableText}`}
           >
-            <PortableText value={description} />
+            My journey in fullstack software engineering
           </h4>
         </header>
       )

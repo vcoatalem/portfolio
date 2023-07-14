@@ -10,6 +10,7 @@ import SectionSeparator from 'components/SectionSeparator'
 import * as demo from 'lib/demo.data'
 import type { Post, Project, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
+import IntroTemplate from 'intro-template'
 
 export interface ProjectPageProps {
   preview?: boolean
@@ -49,6 +50,7 @@ export default function ProjectPage(props: ProjectPageProps) {
             </>
           )}
         </Container>
+        <IntroTemplate />
       </Layout>
     </>
   )
