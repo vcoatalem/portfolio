@@ -54,6 +54,12 @@ export default defineType({
       })
     }),
     defineField({
+      name: 'technos',
+      title: 'Technos',
+      type: 'array',
+      of: [{type: 'string'}]
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
