@@ -3,7 +3,7 @@ import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
 import MoreStories from 'components/MoreStories'
 import PostBody from 'components/PostBody'
-import PostHeader from 'components/PostHeader'
+import ProjectHeader from './ProjectHeader'
 import ProjectPageHead from './ProjectPageHead'
 import PostTitle from 'components/PostTitle'
 import SectionSeparator from 'components/SectionSeparator'
@@ -11,6 +11,7 @@ import * as demo from 'lib/demo.data'
 import type { Post, Project, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
 import IntroTemplate from 'intro-template'
+
 
 export interface ProjectPageProps {
   preview?: boolean
@@ -43,10 +44,21 @@ export default function ProjectPage(props: ProjectPageProps) {
             <PostTitle>Loading…</PostTitle>
           ) : (
             <>
-
+              <ProjectHeader
+                title={project.title}
+                coverImage={project.coverImage}
+                authors={project.authors}
+                intro={project.intro.children.text}
+                slug={project.slug}
+                tags={project.tags}
+                technos={project.technos}
+              />
               <SectionSeparator />
 
-              {JSON.stringify(project)}
+              <div className='break-words'>
+
+                {JSON.stringify(project)}
+              </div>
             </>
           )}
         </Container>

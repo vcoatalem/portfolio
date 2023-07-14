@@ -20,7 +20,7 @@ export default function AuthorAvatar(props: Author) {
           alt=""
         />
       </div>
-      <div className="text-xl font-bold">{name}</div>
+      <div className='md:text-xl font-bold break-all'>{name.split(' ')[0]}</div>
     </div>
   )
 }

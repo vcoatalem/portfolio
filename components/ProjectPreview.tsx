@@ -3,6 +3,7 @@ import CoverImage from 'components/CoverImage'
 import Date from 'components/PostDate'
 import type { Project } from 'lib/sanity.queries'
 import Link from 'next/link'
+import AuthorFlex from './AuthorFlex'
 
 export default function ProjectPreview({
   title,
@@ -34,10 +35,7 @@ export default function ProjectPreview({
       <div className="mb-4 text-lg">
         {intro}
       </div>
-      {authors && (<div className='flex flex-row'>
-          {authors.map(author => <Avatar key={author.name} name={author.name} picture={author.picture} />)}
-        </div>)
-      }
+      <AuthorFlex authors={authors}/>
     </div>
   )
 }
