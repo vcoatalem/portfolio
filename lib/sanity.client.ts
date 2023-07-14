@@ -5,7 +5,9 @@ import {
   type Post,
   type Project,
   postAndMoreStoriesQuery,
+  projectAndMoreProjectsQuery,
   postBySlugQuery,
+  projectSlugsQuery,
   postSlugsQuery,
   type Settings,
   settingsQuery,
@@ -48,6 +50,14 @@ export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
   return []
 }
 
+export async function getAllProjectsSlugs(): Promise<Pick<Project, 'slug'>[]> {
+  if (client) {
+    const slugs = (await client.fetch<string[]>(projectSlugsQuery)) || []
+    return slugs.map((slug) => ({ slug }))
+  }
+  return []
+}
+
 export async function getPostBySlug(slug: string): Promise<Post> {
   if (client) {
     return (await client.fetch(postBySlugQuery, { slug })) || ({} as any)
@@ -71,3 +81,21 @@ export async function getPostAndMoreStories(
   }
   return { post: null, morePosts: [] }
 }
+
+export async function getProjectAndMoreProjects(
+  slug: string,
+  token?: string | null
+): Promise<{ project: Project; moreProjects: Project[] }> {
+  if (projectId) {
+    const client = createClient({
+      projectId,
+      dataset,
+      apiVersion,
+      useCdn,
+      token: token || undefined,
+    })
+    return await client.fetch(projectAndMoreProjectsQuery, { slug })
+  }
+  return { project: null, moreProjects: [] }
+}
+

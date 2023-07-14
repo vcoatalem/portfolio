@@ -104,7 +104,6 @@ export default defineType({
       content: 'content'
     },
     prepare({ title, technos, content, media }) {
-      //console.log("content:", content)
       return { title, media, technos, subtitle: content[0].children[0].text }
     },
   },

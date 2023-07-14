@@ -33,6 +33,18 @@ export const projectIndexQuery = groq`
   ${projectFields}
 }`
 
+export const projectAndMoreProjectsQuery = groq`
+{
+  "project": *[_type == "project" && slug.current == $slug] | order(_updatedAt desc) [0] {
+    content,
+    ${projectFields}
+  },
+  "moreProjects": *[_type == "project" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+    content,
+    ${projectFields}
+  }
+}`
+
 export const postAndMoreStoriesQuery = groq`
 {
   "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
@@ -47,6 +59,10 @@ export const postAndMoreStoriesQuery = groq`
 
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
+`
+
+export const projectSlugsQuery = groq`
+*[_type == "project" && defined(slug.current)][].slug.current
 `
 
 export const postBySlugQuery = groq`

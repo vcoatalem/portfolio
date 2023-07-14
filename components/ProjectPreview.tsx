@@ -27,7 +27,7 @@ export default function ProjectPreview({
         />
       </div>
       <h3 className="mb-3 text-3xl leading-snug">
-        <Link href={`/projects/${slug}`} className="hover:underline">
+        <Link href={slug} className="hover:underline">
           {title}
         </Link>
       </h3>
@@ -35,7 +35,7 @@ export default function ProjectPreview({
         {intro}
       </div>
       {authors && (<div className='flex flex-row'>
-          {authors.map(author => <Avatar name={author.name} picture={author.picture} />)}
+          {authors.map(author => <Avatar key={author.name} name={author.name} picture={author.picture} />)}
         </div>)
       }
     </div>

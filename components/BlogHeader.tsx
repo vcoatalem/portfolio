@@ -29,7 +29,6 @@ export default function BlogHeader({
   level: 1 | 2
 }) {
   const { asPath, pathname } = useRouter()
-  console.log(asPath, pathname)
 
   switch (level) {
     case 1:
