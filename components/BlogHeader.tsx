@@ -2,22 +2,44 @@ import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
 
 import styles from './BlogHeader.module.css'
+import { useRouter } from 'next/router'
 
-export default function BlogHeader({
+function styleNavLink({
   title,
-  description,
-  level,
+  currentPath
 }: {
   title: string
+  currentPath: string
+}) {
+  console.log(currentPath)
+  console.log(currentPath.includes(title))
+  if (currentPath == "/" || currentPath.includes("posts")) {
+    if (title == "posts") { return <span>Articles.</span>}
+    if (title == "projects") { return <span className='text-slate-500 hover:text-black'>Projects.</span> }
+  }
+  else {
+    if (title == "posts") { return <span className='text-slate-500 hover:text-black'>Articles.</span>}
+    if (title == "projects") { return <span >Projects.</span> }
+  }
+}
+
+export default function BlogHeader({
+  level,
+  description
+}: {
   description?: any[]
   level: 1 | 2
 }) {
+  const { asPath, pathname } = useRouter()
+  console.log(asPath, pathname)
+
   switch (level) {
     case 1:
       return (
         <header className="mb-10 mt-16 flex flex-col items-center md:mb-12 md:flex-row md:justify-between">
           <h1 className="text-6xl font-bold leading-tight tracking-tighter md:pr-8 md:text-8xl">
-            {title}
+            <a href="/">{styleNavLink({ title: "posts", currentPath: asPath })}</a>
+            <a href="/projects">{styleNavLink({ title: "projects", currentPath: asPath })}</a>
           </h1>
           <h4
             className={`mt-5 text-center text-lg md:pl-8 md:text-left ${styles.portableText}`}
@@ -32,7 +54,10 @@ export default function BlogHeader({
         <header>
           <h2 className="mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
             <Link href="/" className="hover:underline">
-              {title}
+              {styleNavLink({ title: "posts", currentPath: asPath })}
+            </Link>
+            <Link href="/projects" className="hover:underline">
+              {styleNavLink({ title: "projects", currentPath: asPath })}
             </Link>
           </h2>
         </header>
