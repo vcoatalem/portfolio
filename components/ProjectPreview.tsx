@@ -27,21 +27,20 @@ export default function ProjectPreview({
           priority={false}
         />
       </div>
+
       <div className='flex flex-row '>
-        <h3 className="text-5xl leading-snug content-center inline-grid">
-          <Link href={slug} className="hover:underline">
-            {title}
-          </Link>
-        </h3>
-        <div className='ml-auto h-16 '>
+
+        <div className="text-lg pr-16">
+          {intro}
+        </div>
+
+        <div className='ml-auto h-16 flex-none'>
           <AuthorFlex authors={authors}/>
         </div>
 
       </div>
       
-      <div className="mb-4 text-lg">
-        {intro}
-      </div>
+ 
     </div>
   )
 }

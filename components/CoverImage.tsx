@@ -33,11 +33,25 @@ export default function CoverImage(props: CoverImageProps) {
   )
 
   return (
-    <div className="sm:mx-0">
+    <div className="sm:mx-0 hover:opacity-70">
       {slug ? (
-        <Link href={slug} aria-label={title}>
-          {image}
-        </Link>
+        <div className='relative'>
+          <Link href={slug} aria-label={title}>
+            {image}
+          </Link>
+
+          <div className='absolute bottom-0 text-center w-full z-50 backdrop-blur-md'>            
+            <h1 className='font-extrabold text-pink-500 font-mono p-2 mx-auto  
+              sm:text-white sm:text-3xl
+              md:text-white md:text-3xl
+              xl:text-white xl:text-6xl
+              '
+            >
+              {title}
+            </h1>
+          </div>
+          
+        </div>
       ) : (
         image
       )}
