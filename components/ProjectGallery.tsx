@@ -22,5 +22,5 @@ export default function ProjectGallery({ projects }: { projects: Project[] }) {
         ))}
       </div>
     </section>
-  )
+  ) //TODO: make 'intro' a proper props of projects in sanity (similar to excerpt for posts)
 }

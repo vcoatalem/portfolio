@@ -8,10 +8,11 @@ interface CoverImageProps {
   slug?: string
   image: any
   priority?: boolean
+  level: 1 | 2
 }
 
 export default function CoverImage(props: CoverImageProps) {
-  const { title, slug, image: source, priority } = props
+  const { title, slug, image: source, priority, level } = props
   const image = source?.asset?._ref ? (
     <div
       className={cn('shadow-small', {
@@ -33,19 +34,25 @@ export default function CoverImage(props: CoverImageProps) {
   )
 
   return (
-    <div className="sm:mx-0 hover:opacity-70">
+    <div className={`
+      ${level === 2 ? 'hover:opacity-70' : ''}
+      sm:mx-0
+    `}>
       {slug ? (
         <div className='relative'>
           <Link href={slug} aria-label={title}>
             {image}
           </Link>
 
-          <div className='absolute bottom-0 text-center w-full z-50 backdrop-blur-md'>            
-            <h1 className='font-extrabold text-pink-500 font-mono p-2 mx-auto  
-              sm:text-white sm:text-3xl
-              md:text-white md:text-3xl
-              xl:text-white xl:text-6xl
-              '
+          <div className={`
+            ${level === 1 ? 'collapse' : ''}
+            absolute bottom-0 text-center w-full z-50 backdrop-blur-md
+          `}>            
+            <h1 className='
+              font-extrabold text-white font-mono p-2 mx-auto  
+              sm:text-3xl
+              md:text-3xl
+              xl:text-6xl'
             >
               {title}
             </h1>

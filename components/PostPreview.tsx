@@ -20,6 +20,7 @@ export default function PostPreview({
           title={title}
           image={coverImage}
           priority={false}
+          level={1}
         />
       </div>
       <h3 className="mb-3 text-3xl leading-snug">

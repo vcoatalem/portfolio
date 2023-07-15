@@ -62,12 +62,12 @@ export default memo(function IntroTemplate() {
                     I write things !
                   </div>
                   <div className="text-s text-gray-700">
-                    Checkout my <a href="https://dev.to/vcoatalem">dev.to</a> profile
+                    Check out my <a href="https://dev.to/vcoatalem">dev.to</a> profile
                   </div>
 
                   <div className="mt-3">
                     <Link
-                      className="inline-flex rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-800"
+                      className="inline-flex rounded bg-pink-500 px-4 py-2 text-white hover:bg-blue-800"
                       href="https://dev.to/vcoatalem"
                     >
                       Follow me on Dev.To
@@ -85,7 +85,7 @@ export default memo(function IntroTemplate() {
                     Like this website ?
                   </div>
                   <div className="text-s text-gray-700">
-                    Checkout <a className='font-bold text-blue-500' href="https://github.com/sanity-io/nextjs-blog-cms-sanity-v3">the original template</a> and <a className='font-bold text-blue-500' href="https://github.com/vcoatalem/portfolio"> my <em>adapted</em> version</a>
+                    Check out <a className='font-bold text-pink-500' href="https://github.com/sanity-io/nextjs-blog-cms-sanity-v3">the original template</a> and <a className='font-bold text-pink-500' href="https://github.com/vcoatalem/portfolio"> my <em>adapted</em> version</a>
                   </div>
                 </div>
               }
@@ -113,14 +113,14 @@ export default memo(function IntroTemplate() {
             <ul>
               <li className="mb-2">
                 
-                <BlueLink
+                <PinkLink
                   href="https://www.linkedin.com/in/victor-coatalem/"
                   text="Connect with me on LinkedIn"
                   svgPath='M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z'
                 />
               </li>
               <li className="mb-2">
-                <BlueLink
+                <PinkLink
                   href="mailto:victor.coatalem@gmail.com"
                   text="Join me by mail"
                   svgPath='M18.73 5.41l-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 002 7.05v11.59A1.36 1.36 0 003.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0022 18.64V7.05a2 2 0 00-3.27-1.64z'
@@ -158,15 +158,15 @@ function Box({
   )
 }
 
-function BlueLink({ href, text, svgPath }: {href: string; text: string, svgPath: string }) {
+function PinkLink({ href, text, svgPath }: {href: string; text: string, svgPath: string }) {
   return (
     <a
       href={href}
-      className="text-blue-500 underline hover:text-blue-800 flex flex-row"
+      className="text-pink-500 underline hover:text-blue-800 flex flex-row"
       target="_blank"
       rel="noreferrer"
     >
-      <svg
+      {svgPath ? (<svg
         className='flex mr-4'
         viewBox="0 0 24 24"
         fill="#222222"
@@ -174,7 +174,8 @@ function BlueLink({ href, text, svgPath }: {href: string; text: string, svgPath:
         width="4em"
       >
         <path d={svgPath} />
-      </svg>
+      </svg>) : <span/>}
+      
       <span className='flex justify-start self-center text-2xl'>
         {text}
       </span>

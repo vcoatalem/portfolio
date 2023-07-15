@@ -25,14 +25,15 @@ export default function ProjectPreview({
           title={title}
           image={coverImage}
           priority={false}
+          level={2}
         />
       </div>
 
       <div className='flex flex-row '>
 
-        <div className="text-lg pr-16">
+        <p className="text-lg pr-16 align-center inline-flex">
           {intro}
-        </div>
+        </p>
 
         <div className='ml-auto h-16 flex-none'>
           <AuthorFlex authors={authors}/>
