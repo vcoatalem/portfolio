@@ -25,7 +25,12 @@ export default function PostPreview({
       <div className="mb-4 text-lg">
         <Date dateString={date} />
       </div>
-      {excerpt && <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>}
+      
+      {excerpt && (
+        <p className="text-lg md:text-2xl lg:text-3xl pr-16 align-center inline-flex ">
+          {excerpt}
+        </p>
+      )}
     </div>
   )
 }

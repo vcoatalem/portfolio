@@ -45,11 +45,13 @@ export default function CoverImage(props: CoverImageProps) {
             <div className={`
               ${level === 1 ? 'collapse' : ''}
               absolute bottom-0 text-center align-center flex w-full h-full z-50 text-white hover:text-pink-500 align-center backdrop-blur-sm hover:backdrop-blur-md
-            `}>            
+            `}> 
+              <div className='bg-black opacity-30 w-full h-full absolute z-30'/>     
               <h1 className='
+                z-50
+                opacity-100
                 font-extrabold font-mono mx-auto my-auto
                 p-8
-                bg-black
                 inline-flex
                 sm:text-3xl
                 md:text-3xl
@@ -57,6 +59,7 @@ export default function CoverImage(props: CoverImageProps) {
               >
                 {title}
               </h1>
+
             </div>
           </Link>
         </div>
