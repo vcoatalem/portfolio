@@ -38,7 +38,7 @@ export default function ProjectHeader(
         
         <div className='flex flex-row flex-nowrap bg-gray-50 rounded-xl w-full p-16'>
           <TagSection tags={technos.concat(tags)}/>
-          <div className='flex-none ml-auto'>
+          <div className='flex-none ml-auto h-32'>
             <AuthorFlex level={2} authors={authors}/>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function ProjectHeader(
 
         <div className='pl-8 w-48 flex-none hidden sm:block'>
           <div className='flex flex-col flex-wrap bg-gray-50 h-full rounded-xl p-4'>
-            <div className='ml-4'>
+            <div className='ml-4 h-16'>
               <AuthorFlex level={1} authors={authors}/>
             </div>
             <hr className="w-full h-1 my-4 border-2 rounded md:my-10"></hr>
