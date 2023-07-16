@@ -55,7 +55,7 @@ export default function ProjectHeader(
 
 
       <div id='small screen resume' className='md:hidden  flex flex-row '>
-        <p className="text-lg align-center sm:inline-flex">
+        <p className="text-lg align-center sm:inline-flex items-center">
           {excerpt}
         </p>
 
