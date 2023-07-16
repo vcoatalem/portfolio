@@ -9,7 +9,7 @@ export default function ProjectPreview({
   title,
   coverImage,
   authors,
-  intro,
+  excerpt,
   content,
   gitUrl,
   productionUrl,
@@ -32,7 +32,7 @@ export default function ProjectPreview({
       <div className='flex flex-row '>
 
         <p className="text-lg pr-16 align-center inline-flex">
-          {intro}
+          {excerpt}
         </p>
 
         <div className='ml-auto h-16 flex-none'>

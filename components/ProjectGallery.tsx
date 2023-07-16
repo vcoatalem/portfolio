@@ -11,7 +11,7 @@ export default function ProjectGallery({ projects }: { projects: Project[] }) {
             title={project.title}
             coverImage={project.coverImage}
             content={project.content}
-            intro={project.intro.children.text}
+            excerpt={project.excerpt}
             authors={project.authors}
             tags={project.tags}
             technos={project.technos}

@@ -49,7 +49,7 @@ export default function ProjectPage(props: ProjectPageProps) {
                 title={project.title}
                 coverImage={project.coverImage}
                 authors={project.authors}
-                intro={project.intro.children.text}
+                excerpt={project.excerpt}
                 slug={project.slug}
                 tags={project.tags}
                 technos={project.technos}

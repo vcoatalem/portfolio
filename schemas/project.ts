@@ -39,6 +39,11 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
@@ -101,10 +106,10 @@ export default defineType({
       title: 'title',
       technos: 'technos',
       media: 'coverImage',
-      content: 'content'
+      excerpt: 'excerpt'
     },
-    prepare({ title, technos, content, media }) {
-      return { title, media, technos, subtitle: content[0].children[0].text }
+    prepare({ title, technos, excerpt, media }) {
+      return { title, media, technos, excerpt }
     },
   },
 })

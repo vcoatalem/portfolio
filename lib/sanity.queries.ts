@@ -16,6 +16,7 @@ const projectFields = groq`
   coverImage,
   technos,
   tags,
+  excerpt,
   gitUrl,
   productionUrl,
   'intro': content[0]{children[0]{text}},
@@ -99,7 +100,7 @@ export interface Project {
   productionUrl: string
   gitUrl: string
   authors?: [Author]
-  intro?: any
+  excerpt?: any
   content?: any
 }
 

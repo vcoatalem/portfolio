@@ -10,10 +10,10 @@ import TagSection from './TagSection'
 
 
 export default function ProjectHeader(
-  props: Pick<Project, 'title' | 'coverImage' | 'authors' | 'slug' | 'intro' | 'tags' | 'technos' | 'gitUrl' | 'productionUrl'>
+  props: Pick<Project, 'title' | 'coverImage' | 'authors' | 'slug' | 'excerpt' | 'tags' | 'technos' | 'gitUrl' | 'productionUrl'>
 ) {
   console.log(props)
-  const { title, coverImage, authors, intro, slug, tags, technos, gitUrl, productionUrl } = props
+  const { title, coverImage, authors, excerpt, slug, tags, technos, gitUrl, productionUrl } = props
   return (
     <>
 
@@ -56,7 +56,7 @@ export default function ProjectHeader(
 
       <div id='small screen resume' className='md:hidden  flex flex-row '>
         <p className="text-lg align-center sm:inline-flex">
-          {intro}
+          {excerpt}
         </p>
 
         <div className='pl-8 w-48 flex-none hidden sm:block'>
@@ -73,7 +73,7 @@ export default function ProjectHeader(
 
       <div id='large screen resume' className='collapse md:visible items-center'>
         <p className="text-xs md:text-3xl text-center">
-          {intro}
+          {excerpt}
         </p>
       </div>
 
