@@ -24,7 +24,7 @@ export default function AuthorFlex(
                     alt={author.name}
                     width={52}
                     height={52}
-                    className='rounded-full hover:h-full hover:w-full '
+                    className='rounded-full hover:h-full hover:w-full grayscale'
                   />
                 ) : (
                   <Image
@@ -36,7 +36,7 @@ export default function AuthorFlex(
                     alt={author.name}
                     width={104}
                     height={104}
-                    className='rounded-full hover:h-full hover:w-full '
+                    className='rounded-full hover:h-full hover:w-full grayscale'
                   />
                 )
                 

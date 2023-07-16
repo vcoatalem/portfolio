@@ -20,7 +20,7 @@ export default function CoverImage(props: CoverImageProps) {
       })}
     >
       <Image
-        className="h-auto w-full"
+        className={`h-auto w-full ${level == 2 ? 'grayscale' : ''}`}
         width={2000}
         height={1000}
         alt={`Cover Image for ${title}`}
@@ -42,22 +42,23 @@ export default function CoverImage(props: CoverImageProps) {
         <div className='relative'>
           <Link href={slug} aria-label={title}>
             {image}
+            <div className={`
+              ${level === 1 ? 'collapse' : ''}
+              absolute bottom-0 text-center align-center flex w-full h-full z-50 text-white hover:text-pink-500 align-center backdrop-blur-sm hover:backdrop-blur-md
+            `}>            
+              <h1 className='
+                font-extrabold font-mono mx-auto my-auto
+                p-8
+                bg-black
+                inline-flex
+                sm:text-3xl
+                md:text-3xl
+                xl:text-6xl'
+              >
+                {title}
+              </h1>
+            </div>
           </Link>
-
-          <div className={`
-            ${level === 1 ? 'collapse' : ''}
-            absolute bottom-0 text-center w-full z-50 backdrop-blur-md
-          `}>            
-            <h1 className='
-              font-extrabold text-white font-mono p-2 mx-auto  
-              sm:text-3xl
-              md:text-3xl
-              xl:text-6xl'
-            >
-              {title}
-            </h1>
-          </div>
-          
         </div>
       ) : (
         image
