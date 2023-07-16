@@ -9,25 +9,27 @@ import TagSection from './TagSection'
 
 
 export default function ProjectHeader(
-  props: Pick<Project, 'title' | 'coverImage' | 'authors' | 'slug' | 'intro' | 'tags' | 'technos'>
+  props: Pick<Project, 'title' | 'coverImage' | 'authors' | 'slug' | 'intro' | 'tags' | 'technos' | 'gitUrl' | 'productionUrl'>
 ) {
-  const { title, coverImage, authors, intro, slug, tags, technos } = props
+  const { title, coverImage, authors, intro, slug, tags, technos, gitUrl, productionUrl } = props
   return (
     <>
 
-      <div id='small screen title' className='md:collapse'>
+      <div id='small screen title' className='md:hidden'>
         <PostTitle>{title}</PostTitle>
+        {gitUrl}
+        {gitUrl ? <a>{gitUrl}</a> : <span/>}
       </div>
 
-      <div id='large screen title' className='hidden mb-8 md:visible md:flex flex-row flex-wrap'>
+      <div id='large screen title' className='hidden mb-8 md:flex flex-row flex-wrap'>
         <div className='flex-none'>
           <PostTitle>{title}</PostTitle>
         </div>
         
         <div className='flex flex-row flex-nowrap bg-gray-50 rounded-xl w-full p-16'>
           <TagSection tags={technos.concat(tags)}/>
-          <div className='flex-none'>
-            <AuthorFlex authors={authors}/>
+          <div className='flex-none ml-auto'>
+            <AuthorFlex level={2} authors={authors}/>
           </div>
         </div>
 
@@ -47,10 +49,10 @@ export default function ProjectHeader(
           {intro}
         </p>
 
-        <div className='pl-8 w-48 flex-none'>
+        <div className='pl-8 w-48 flex-none hidden sm:block'>
           <div className='flex flex-col flex-wrap bg-gray-50 h-full rounded-xl p-4'>
             <div className='ml-4'>
-              <AuthorFlex authors={authors}/>
+              <AuthorFlex level={1} authors={authors}/>
             </div>
             <hr className="w-full h-1 my-4 border-2 rounded md:my-10"></hr>
             <TagSection tags={technos.concat(tags)}/>

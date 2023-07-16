@@ -36,7 +36,7 @@ export default function ProjectPreview({
         </p>
 
         <div className='ml-auto h-16 flex-none'>
-          <AuthorFlex authors={authors}/>
+          <AuthorFlex level={1} authors={authors}/>
         </div>
 
       </div>
