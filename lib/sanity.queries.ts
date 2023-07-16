@@ -20,7 +20,7 @@ const projectFields = groq`
   gitUrl,
   productionUrl,
   'intro': content[0]{children[0]{text}},
-  authors[]->{name, picture},
+  authors[]->{name, picture, url},
   "slug": slug.current
 `//TODO: see how to extract 'text' field from children properly
 
@@ -76,6 +76,7 @@ export const postBySlugQuery = groq`
 
 export interface Author {
   name?: string
+  url?: string
   picture?: any
 }
 

@@ -12,7 +12,7 @@ export default function AuthorFlex(
     return (
       <div className='collapse sm:visible relative flex flex-row -space-x-4 h-full'>
           {authors && authors.map(author => (
-            <div key={author.name} className='inline-grid content-center hover:z-50'>
+            <a href={author.url} key={author.name} className='inline-grid content-center hover:z-50'>
               {
                 level == 1 ? (
                   <Image
@@ -43,7 +43,7 @@ export default function AuthorFlex(
               }
               
 
-            </div>
+            </a>
 
           ))}
       </div>
