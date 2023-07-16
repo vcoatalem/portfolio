@@ -20,7 +20,7 @@ export default function CoverImage(props: CoverImageProps) {
       })}
     >
       <Image
-        className={`h-auto w-full ${level == 2 ? 'grayscale' : ''}`}
+        className={`h-auto w-full ${level == 2 ? '' : ''}`}
         width={2000}
         height={1000}
         alt={`Cover Image for ${title}`}
@@ -35,7 +35,6 @@ export default function CoverImage(props: CoverImageProps) {
 
   return (
     <div className={`
-      ${level === 2 ? 'hover:opacity-70' : ''}
       sm:mx-0
     `}>
       {slug ? (
@@ -44,7 +43,7 @@ export default function CoverImage(props: CoverImageProps) {
             {image}
             <div className={`
               ${level === 1 ? 'collapse' : ''}
-              absolute bottom-0 text-center align-center flex w-full h-full z-50 text-white hover:text-pink-500 align-center backdrop-blur-sm hover:backdrop-blur-md
+              absolute bottom-0 text-center align-center flex w-full h-full z-50 text-white hover:text-pink-500 align-center backdrop-blur-sm backdrop-grayscale hover:backdrop-grayscale-0 hover:backdrop-blur-md
             `}> 
               <div className='bg-black opacity-30 w-full h-full absolute z-30'/>     
               <h1 className='

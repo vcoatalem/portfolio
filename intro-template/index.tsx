@@ -85,7 +85,7 @@ export default memo(function IntroTemplate() {
                     Like this website ?
                   </div>
                   <div className="text-s text-gray-700">
-                    Check out <a className='font-bold text-pink-500' href="https://github.com/sanity-io/nextjs-blog-cms-sanity-v3">the original template</a> and <a className='font-bold text-pink-500' href="https://github.com/vcoatalem/portfolio"> my <em>adapted</em> version</a>
+                    Check out <a className='font-bold text-pink-500 hover:text-blue-800' href="https://github.com/sanity-io/nextjs-blog-cms-sanity-v3">the original template</a> and <a className='font-bold text-pink-500 hover:text-blue-800' href="https://github.com/vcoatalem/portfolio"> my <em>adapted</em> version</a>
                   </div>
                 </div>
               }
