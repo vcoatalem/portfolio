@@ -8,6 +8,9 @@ import IntroTemplate from 'intro-template'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 
+import PostGallery from './PostGallery'
+
+
 export interface IndexPageProps {
   preview?: boolean
   loading?: boolean
@@ -37,7 +40,9 @@ export default function IndexPage(props: IndexPageProps) {
               excerpt={heroPost.excerpt}
             />
           )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <PostGallery
+            posts={posts.slice(1)}
+          />
         </Container>
         <IntroTemplate />
       </Layout>

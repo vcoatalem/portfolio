@@ -20,7 +20,7 @@ export default function PostPreview({
           title={title}
           image={coverImage}
           priority={false}
-          level={1}
+          level={2}
         />
       </div>
       <h3 className="mb-3 text-3xl leading-snug">
@@ -32,7 +32,6 @@ export default function PostPreview({
         <Date dateString={date} />
       </div>
       {excerpt && <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>}
-      {author && <Avatar name={author.name} picture={author.picture} />}
     </div>
   )
 }
