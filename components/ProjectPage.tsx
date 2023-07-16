@@ -59,16 +59,16 @@ export default function ProjectPage(props: ProjectPageProps) {
               <SectionSeparator />
 
 
-              <PostBody
-                content={project.content}
-              />
-              <div className='break-words'>
-
-                {JSON.stringify(project)}
+              <div className='mb-12'>
+                <PostBody
+                  content={project.content}
+                />
               </div>
+              
             </>
           )}
         </Container>
+        
         <IntroTemplate />
       </Layout>
     </>

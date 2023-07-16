@@ -37,7 +37,7 @@ export default memo(function IntroTemplate() {
 
   return (
     <div className="flex justify-center border border-gray-200 bg-gray-50">
-      <div className="mb-8 grid max-w-screen-2xl grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32 ">
+      <div className="mb-8 md:mt-8 grid max-w-screen-2xl grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32 ">
         <div className="self-center grayscale">
           <Image
             alt="me!"
@@ -49,7 +49,7 @@ export default memo(function IntroTemplate() {
         </div>
 
         <div className="mx-6 md:mx-0 md:mr-24">
-          <h2 className="mb-8 text-3xl font-bold tracking-wide md:text-5xl">
+          <h2 className="mb-8 mt-4 text-3xl font-bold tracking-wide md:text-5xl">
             More from me
           </h2>
 

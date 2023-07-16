@@ -9,6 +9,10 @@
   @apply my-6;
 }
 
+.portableText h1 {
+  @apply mb-4 mt-12 text-3xl leading-snug;
+}
+
 .portableText h2 {
   @apply mb-4 mt-12 text-3xl leading-snug;
 }
