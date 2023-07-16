@@ -2,7 +2,7 @@ import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
 import MoreStories from 'components/MoreStories'
-import PostBody from 'components/PostBody'
+import MarkdownBody from 'components/MarkdownBody'
 import PostHeader from 'components/PostHeader'
 import PostPageHead from 'components/PostPageHead'
 import PostTitle from 'components/PostTitle'
@@ -50,7 +50,7 @@ export default function PostPage(props: PostPageProps) {
                   date={post.date}
                   author={post.author}
                 />
-                <PostBody content={post.content} />
+                <MarkdownBody content={post.content} />
               </article>
               <SectionSeparator />
               {morePosts?.length > 0 && <MoreStories posts={morePosts} />}

@@ -2,7 +2,7 @@ import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
 import MoreStories from 'components/MoreStories'
-import PostBody from 'components/PostBody'
+import MarkdownBody from 'components/MarkdownBody'
 import ProjectHeader from './ProjectHeader'
 import ProjectPageHead from './ProjectPageHead'
 import PostTitle from 'components/PostTitle'
@@ -11,7 +11,7 @@ import * as demo from 'lib/demo.data'
 import type { Post, Project, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
 import IntroTemplate from 'intro-template'
-
+import MoreProjects from './MoreProjects'
 
 
 export interface ProjectPageProps {
@@ -59,16 +59,18 @@ export default function ProjectPage(props: ProjectPageProps) {
               <SectionSeparator />
 
 
-              <div className='mb-12'>
-                <PostBody
-                  content={project.content}
-                />
-              </div>
+
+              <MarkdownBody
+                content={project.content}
+              />
+
               
             </>
           )}
+          <MoreProjects
+            projects={moreProjects}
+          />
         </Container>
-        
         <IntroTemplate />
       </Layout>
     </>

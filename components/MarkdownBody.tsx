@@ -11,9 +11,9 @@ import { PortableText } from '@portabletext/react'
 
 import styles from './PostBody.module.css'
 
-export default function PostBody({ content }) {
+export default function MarkdownBody({ content }) {
   return (
-    <div className={`mx-auto max-w-2xl ${styles.portableText}`}>
+    <div className={` mb-24 ${styles.portableText}`}>
       <PortableText value={content} />
     </div>
   )
