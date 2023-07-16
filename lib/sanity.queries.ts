@@ -16,6 +16,8 @@ const projectFields = groq`
   coverImage,
   technos,
   tags,
+  gitUrl,
+  productionUrl,
   'intro': content[0]{children[0]{text}},
   authors[]->{name, picture},
   "slug": slug.current

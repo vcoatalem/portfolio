@@ -2,6 +2,7 @@ import Avatar from 'components/AuthorAvatar'
 import CoverImage from 'components/CoverImage'
 import Date from 'components/PostDate'
 import PostTitle from 'components/PostTitle'
+import PostSubtitle from './PostSubtitle'
 import type { Project } from 'lib/sanity.queries'
 import { Author } from 'lib/sanity.queries'
 import AuthorFlex from './AuthorFlex'
@@ -11,19 +12,28 @@ import TagSection from './TagSection'
 export default function ProjectHeader(
   props: Pick<Project, 'title' | 'coverImage' | 'authors' | 'slug' | 'intro' | 'tags' | 'technos' | 'gitUrl' | 'productionUrl'>
 ) {
+  console.log(props)
   const { title, coverImage, authors, intro, slug, tags, technos, gitUrl, productionUrl } = props
   return (
     <>
 
       <div id='small screen title' className='md:hidden'>
         <PostTitle>{title}</PostTitle>
-        {gitUrl}
-        {gitUrl ? <a>{gitUrl}</a> : <span/>}
+        {gitUrl ? <a href={gitUrl}><PostSubtitle>{'> git'}</PostSubtitle></a> : <span/>}
+        {productionUrl ? <a href={gitUrl}><PostSubtitle>{'> production'}</PostSubtitle></a> : <span/>}
       </div>
 
-      <div id='large screen title' className='hidden mb-8 md:flex flex-row flex-wrap'>
+      <div id='large screen title' className='hidden mb-8 md:flex flex-col flex-wrap'>
         <div className='flex-none'>
-          <PostTitle>{title}</PostTitle>
+          <div className='flex flex-row content-center items-center w-full'>
+            <PostTitle>{title}</PostTitle>
+            <div className='ml-auto'>
+              {gitUrl ? <a className='inline-flex ' href={gitUrl}><PostSubtitle>{'> git'}</PostSubtitle></a> : <span/>}
+              {productionUrl ? <a href={gitUrl}><PostSubtitle>{'> production'}</PostSubtitle></a> : <span/>}
+            </div>
+            
+          </div>
+         
         </div>
         
         <div className='flex flex-row flex-nowrap bg-gray-50 rounded-xl w-full p-16'>

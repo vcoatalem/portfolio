@@ -53,6 +53,8 @@ export default function ProjectPage(props: ProjectPageProps) {
                 slug={project.slug}
                 tags={project.tags}
                 technos={project.technos}
+                gitUrl={project.gitUrl}
+                productionUrl={project.productionUrl}
               />
               <SectionSeparator />
 
