@@ -48,7 +48,6 @@ export default function PostPage(props: PostPageProps) {
                   title={post.title}
                   coverImage={post.coverImage}
                   date={post.date}
-                  author={post.author}
                 />
                 <MarkdownBody content={post.content} />
               </article>

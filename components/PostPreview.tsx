@@ -9,7 +9,6 @@ export default function PostPreview({
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }: Omit<Post, '_id'>) {
   return (
@@ -23,11 +22,6 @@ export default function PostPreview({
           level={2}
         />
       </div>
-      <h3 className="mb-3 text-3xl leading-snug">
-        <Link href={slug} className="hover:underline">
-          {title}
-        </Link>
-      </h3>
       <div className="mb-4 text-lg">
         <Date dateString={date} />
       </div>

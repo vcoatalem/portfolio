@@ -11,7 +11,6 @@ export default function PostGallery({ posts }: { posts: Post[] }) {
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}
-            author={post.author}
             slug={`/posts/${post.slug}`}
             excerpt={post.excerpt}
         />
