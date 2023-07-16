@@ -9,7 +9,7 @@ export default function AuthorFlex(
   }) {
     const { authors } = props
     return (
-      <div className='relative flex flex-row -space-x-4 h-full'>
+      <div className='collapse sm:visible relative flex flex-row -space-x-4 h-full'>
           {authors && authors.map((author, idx) => (
             <div key={author.name} className='inline-grid content-center hover:z-50'>
               <Image
