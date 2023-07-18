@@ -1,44 +1,45 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 
 import cover from './portrait.jpg'
 
-export default memo(function IntroTemplate() {
-  const [studioURL, setStudioURL] = useState(null)
-  const [createPostURL, setCreatePostURL] = useState(null)
-  const [isLocalHost, setIsLocalhost] = useState(false)
+import * as React from "react";
 
-  const hasRepoEnvVars =
-    process.env.NEXT_PUBLIC_VERCEL_GIT_PROVIDER &&
-    process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_OWNER &&
-    process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG
-  const repoURL = `https://${process.env.NEXT_PUBLIC_VERCEL_GIT_PROVIDER}.com/${process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_OWNER}/${process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG}`
-  const removeBlockURL = hasRepoEnvVars
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_GIT_PROVIDER}.com/${process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_OWNER}/${process.env.NEXT_PUBLIC_VERCEL_GIT_REPO_SLUG}/blob/main/README.md#how-can-i-remove-the-next-steps-block-from-my-blog`
-    : `https://github.com/sanity-io/nextjs-blog-cms-sanity-v3#how-can-i-remove-the-next-steps-block-from-my-blog`
+function IconLinkedin(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 1024 1024"
+      fill="currentColor"
+      width="3em"
+      {...props}
+    >
+      <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM349.3 793.7H230.6V411.9h118.7v381.8zm-59.3-434a68.8 68.8 0 1168.8-68.8c-.1 38-30.9 68.8-68.8 68.8zm503.7 434H675.1V608c0-44.3-.8-101.2-61.7-101.2-61.7 0-71.2 48.2-71.2 98v188.9H423.7V411.9h113.8v52.2h1.6c15.8-30 54.5-61.7 112.3-61.7 120.2 0 142.3 79.1 142.3 181.9v209.4z" />
+    </svg>
+  );
+}
 
-  const [hasUTMtags, setHasUTMtags] = useState(false)
+function IconGmail(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      width="3em"
+      {...props}
+    >
+      <path d="M20 18h-2V9.25L12 13 6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2z" />
+    </svg>
+  );
+}
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setStudioURL(`${window.location.origin}/studio`)
-      setCreatePostURL(
-        `${window.location.origin}/studio/intent/create/template=post;type=post/`
-      )
-      setIsLocalhost(window.location.hostname === 'localhost')
-      setHasUTMtags(window.location.search.includes('utm'))
-    }
-  }, [])
 
-  if (hasUTMtags || !studioURL) {
-    return
-  }
+
+export default memo(function MoreFromMe() {
 
   return (
     <div className="flex justify-center border border-gray-200 bg-gray-50">
       <div className="mb-8 md:mt-8 grid max-w-screen-2xl grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32 ">
-        <div className="self-center grayscale">
+        <div className="self-center grayscale hover:grayscale-0">
           <Image
             alt="me!"
             src={cover}
@@ -112,18 +113,16 @@ export default memo(function IntroTemplate() {
             </div>
             <ul>
               <li className="mb-2">
-                
+
                 <PinkLink
                   href="https://www.linkedin.com/in/victor-coatalem/"
                   text="Connect with me on LinkedIn"
-                  svgPath='M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z'
                 />
               </li>
               <li className="mb-2">
                 <PinkLink
                   href="mailto:victor.coatalem@gmail.com"
                   text="Join me by mail"
-                  svgPath='M18.73 5.41l-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 002 7.05v11.59A1.36 1.36 0 003.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0022 18.64V7.05a2 2 0 00-3.27-1.64z'
                 />
               </li>
             </ul>
@@ -131,7 +130,6 @@ export default memo(function IntroTemplate() {
 
           <div className="text-center text-xs text-gray-700 md:invisible">
 
-         
           </div>
         </div>
       </div>
@@ -158,7 +156,7 @@ function Box({
   )
 }
 
-function PinkLink({ href, text, svgPath }: {href: string; text: string, svgPath: string }) {
+function PinkLink({ href, text }: {href: string; text: string,  }) {
   return (
     <a
       href={href}
@@ -166,17 +164,11 @@ function PinkLink({ href, text, svgPath }: {href: string; text: string, svgPath:
       target="_blank"
       rel="noreferrer"
     >
-      {svgPath ? (<svg
-        className='flex mr-4'
-        viewBox="0 0 24 24"
-        fill="#222222"
-        height="4em"
-        width="4em"
-      >
-        <path d={svgPath} />
-      </svg>) : <span/>}
+      {
+        href.includes('mailto') ? <IconGmail/> : <IconLinkedin/>
+      }
       
-      <span className='flex justify-start self-center text-2xl'>
+      <span className='flex justify-start self-center text-2xl ml-4'>
         {text}
       </span>
 

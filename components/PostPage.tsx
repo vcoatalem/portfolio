@@ -10,7 +10,7 @@ import SectionSeparator from 'components/SectionSeparator'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
-import IntroTemplate from 'intro-template'
+import MoreFromMe from 'components/contact/MoreFromMe'
 
 export interface PostPageProps {
   preview?: boolean
@@ -56,7 +56,7 @@ export default function PostPage(props: PostPageProps) {
             </>
           )}
         </Container>
-        <IntroTemplate />
+        <MoreFromMe />
       </Layout>
     </>
   )

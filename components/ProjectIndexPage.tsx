@@ -1,7 +1,7 @@
 import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
-import IntroTemplate from 'intro-template'
+import MoreFromMe from 'components/contact/MoreFromMe'
 import * as demo from 'lib/demo.data'
 import ProjectGallery from 'components/ProjectGallery'
 import type { Project, Settings } from 'lib/sanity.queries'
@@ -22,7 +22,7 @@ export default function ProjectIndexPageProps(props: ProjectIndexPageProps) {
           <BlogHeader level={1} />
           <ProjectGallery projects={projects}/>
         </Container>
-        <IntroTemplate />
+        <MoreFromMe />
       </Layout>
     </>
   )

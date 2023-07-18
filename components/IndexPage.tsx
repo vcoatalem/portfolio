@@ -4,7 +4,7 @@ import Layout from 'components/BlogLayout'
 import HeroPost from 'components/HeroPost'
 import IndexPageHead from 'components/IndexPageHead'
 import MoreStories from 'components/MoreStories'
-import IntroTemplate from 'intro-template'
+import MoreFromMe from 'components/contact/MoreFromMe'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 
@@ -43,7 +43,7 @@ export default function IndexPage(props: IndexPageProps) {
             posts={posts.slice(1)}
           />
         </Container>
-        <IntroTemplate />
+        <MoreFromMe />
       </Layout>
     </>
   )
