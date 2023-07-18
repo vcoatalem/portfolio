@@ -10,7 +10,7 @@ import SectionSeparator from 'components/SectionSeparator'
 import * as demo from 'lib/demo.data'
 import type { Post, Project, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
-import IntroTemplate from 'intro-template'
+import MoreFromMe from 'components/contact/MoreFromMe'
 import MoreProjects from './MoreProjects'
 
 
@@ -71,7 +71,7 @@ export default function ProjectPage(props: ProjectPageProps) {
             projects={moreProjects}
           />
         </Container>
-        <IntroTemplate />
+        <MoreFromMe />
       </Layout>
     </>
   )
