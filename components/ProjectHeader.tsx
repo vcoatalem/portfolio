@@ -87,7 +87,7 @@ export default function ProjectHeader(
               {
                 [gitUrl, productionUrl].filter(url => url).map(
                   (url, idx) => (
-                    <div className='mx-auto'>
+                    <div className='mx-auto' key={idx}>
                       <ExternalRessourceLink href={url} type={idx == 0 ? 'git' : 'prod'}/>
                     </div>
                   )
@@ -125,7 +125,7 @@ export default function ProjectHeader(
               {
                 [gitUrl, productionUrl].filter(url => url).map(
                   (url, idx) => (
-                    <div className='mx-auto'>
+                    <div key={idx} className='mx-auto'>
                       <ExternalRessourceLink href={url} type={idx == 0 ? 'git' : 'prod'}/>
                     </div>
                   )
