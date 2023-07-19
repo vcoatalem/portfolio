@@ -12,6 +12,7 @@ import type { Post, Project, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
 import MoreFromMe from 'components/contact/MoreFromMe'
 import MoreProjects from './MoreProjects'
+import BlogBody from './BlogBody'
 
 
 export interface ProjectPageProps {
@@ -41,32 +42,32 @@ export default function ProjectPage(props: ProjectPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader level={2} />
-          {preview && !project ? (
-            <PostTitle>Loading…</PostTitle>
-          ) : (
-            <>
-              <ProjectHeader
-                title={project.title}
-                coverImage={project.coverImage}
-                authors={project.authors}
-                excerpt={project.excerpt}
-                slug={project.slug}
-                tags={project.tags}
-                technos={project.technos}
-                gitUrl={project.gitUrl}
-                productionUrl={project.productionUrl}
-              />
-              <SectionSeparator />
+          <BlogBody>
+            {preview && !project ? (
+              <PostTitle>Loading…</PostTitle>
+            ) : (
+              <>
+                <ProjectHeader
+                  title={project.title}
+                  coverImage={project.coverImage}
+                  authors={project.authors}
+                  excerpt={project.excerpt}
+                  slug={project.slug}
+                  tags={project.tags}
+                  technos={project.technos}
+                  gitUrl={project.gitUrl}
+                  productionUrl={project.productionUrl}
+                />
+                <SectionSeparator />
 
 
 
-              <MarkdownBody
-                content={project.content}
-              />
-
-              
-            </>
-          )}
+                <MarkdownBody
+                  content={project.content}
+                />
+              </>
+            )}
+          </BlogBody>
           <MoreProjects
             projects={moreProjects}
           />

@@ -54,7 +54,7 @@ export default function CoverImage(props: CoverImageProps) {
                 inline-flex
                 sm:text-3xl
                 md:text-3xl
-                xl:text-6xl'
+                xl:text-4xl'
               >
                 {title}
               </h1>

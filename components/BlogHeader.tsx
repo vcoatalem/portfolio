@@ -33,7 +33,7 @@ export default function BlogHeader({
   switch (level) {
     case 1:
       return (
-        <header className="mb-10 mt-16 flex flex-col items-center lg:mb-12 lg:flex-row lg:justify-between">
+        <header className="mb-10 mt-16 flex flex-col items-center lg:mb-12 lg:flex-row lg:justify-between mx-auto">
           <h1 className="text-6xl font-bold leading-tight tracking-tighter md:pr-8 md:text-8xl">
             <a href="/">{styleNavLink({ title: "posts", currentPath: asPath })}</a>
             <span className='text-pink-500'>  |  </span>

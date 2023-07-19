@@ -9,6 +9,7 @@ import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 
 import PostGallery from './PostGallery'
+import BlogBody from './BlogBody'
 
 
 export interface IndexPageProps {
@@ -28,20 +29,27 @@ export default function IndexPage(props: IndexPageProps) {
       <IndexPageHead settings={settings} />
 
       <Layout preview={preview} loading={loading}>
+        
+ 
         <Container>
+   
           <BlogHeader level={1} />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              slug={`/posts/${heroPost.slug}`}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          <PostGallery
-            posts={posts.slice(1)}
-          />
+          <BlogBody>
+            <div className='max-w-4xl mx-auto'>
+              {heroPost && (
+                <HeroPost
+                  title={heroPost.title}
+                  coverImage={heroPost.coverImage}
+                  date={heroPost.date}
+                  slug={`/posts/${heroPost.slug}`}
+                  excerpt={heroPost.excerpt}
+                />
+              )}
+              <PostGallery
+                posts={posts.slice(1)}
+              />
+            </div>
+          </BlogBody>
         </Container>
         <MoreFromMe />
       </Layout>

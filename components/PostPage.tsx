@@ -11,6 +11,7 @@ import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
 import MoreFromMe from 'components/contact/MoreFromMe'
+import BlogBody from './BlogBody'
 
 export interface PostPageProps {
   preview?: boolean
@@ -39,22 +40,24 @@ export default function PostPage(props: PostPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader level={2} />
-          {preview && !post ? (
-            <PostTitle>Loading…</PostTitle>
-          ) : (
-            <>
-              <article>
-                <PostHeader
-                  title={post.title}
-                  coverImage={post.coverImage}
-                  date={post.date}
-                />
-                <MarkdownBody content={post.content} />
-              </article>
-              <SectionSeparator />
-              {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
-            </>
-          )}
+          <BlogBody>
+            {preview && !post ? (
+              <PostTitle>Loading…</PostTitle>
+            ) : (
+              <>
+                <article>
+                  <PostHeader
+                    title={post.title}
+                    coverImage={post.coverImage}
+                    date={post.date}
+                  />
+                  <MarkdownBody content={post.content} />
+                </article>
+                <SectionSeparator />
+                {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
+              </>
+            )}
+          </BlogBody>
         </Container>
         <MoreFromMe />
       </Layout>
