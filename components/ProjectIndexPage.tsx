@@ -21,7 +21,6 @@ export default function ProjectIndexPageProps(props: ProjectIndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader level={1} />
-          <hr className="w-full h-1 my-12 border-2 rounded "></hr>
           <BlogBody>
             <ProjectGallery projects={projects}/>
           </BlogBody>

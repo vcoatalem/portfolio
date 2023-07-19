@@ -27,7 +27,7 @@ export default function PostPreview({
       </div>
       
       {excerpt && (
-        <p className="text-lg md:text-2xl lg:text-3xl pr-16 align-center inline-flex ">
+        <p className='text-lg md:text-xl lg:text-2xl pr-16 align-center inline-flex'>
           {excerpt}
         </p>
       )}

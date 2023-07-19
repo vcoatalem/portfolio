@@ -33,17 +33,20 @@ export default function BlogHeader({
   switch (level) {
     case 1:
       return (
-        <header className="mb-10 mt-16 flex flex-col items-center lg:mb-12 lg:flex-row lg:justify-between mx-auto">
-          <h1 className="text-6xl font-bold leading-tight tracking-tighter md:pr-8 md:text-8xl">
-            <a href="/">{styleNavLink({ title: "posts", currentPath: asPath })}</a>
-            <span className='text-pink-500'>  |  </span>
-            <a href="/projects">{styleNavLink({ title: "projects", currentPath: asPath })}</a>
-          </h1>
-          <h4
-            className={`mt-5 text-center text-lg  lg:text-2xl lg:pl-8 lg:text-left ${styles.portableText}`}
-          >
-            My journey in fullstack software engineering
-          </h4>
+        <header>
+          <div className='mb-10 mt-16 flex flex-col items-center lg:mb-12 lg:flex-row lg:justify-between mx-auto'>
+            <h1 className="text-6xl font-bold leading-tight tracking-tighter md:pr-8 md:text-8xl">
+              <a href="/">{styleNavLink({ title: "posts", currentPath: asPath })}</a>
+              <span className='text-pink-500'>  |  </span>
+              <a href="/projects">{styleNavLink({ title: "projects", currentPath: asPath })}</a>
+            </h1>
+            <h4
+              className={`mt-5 text-center text-lg  lg:text-2xl lg:pl-8 lg:text-left ${styles.portableText}`}
+            >
+              My journey in fullstack software engineering
+            </h4>
+          </div>
+          <hr className="w-full h-1 my-12 border-3 rounded"></hr>
         </header>
       )
 
