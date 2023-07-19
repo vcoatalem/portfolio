@@ -36,6 +36,7 @@ export default function IndexPage(props: IndexPageProps) {
           <BlogHeader level={1} />
           <BlogBody>
             <div className='max-w-4xl mx-auto'>
+            <hr className="w-full h-1 my-12 border-2 rounded lg:collapse"></hr>
               {heroPost && (
                 <HeroPost
                   title={heroPost.title}
